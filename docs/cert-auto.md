@@ -35,7 +35,7 @@ CNQ: 要先注册账号
 # 服务器公网 IP
 ip=$(curl -s https://api.ipify.org)
 domain=$ip.xip.io
-
+#CNQ: 这里填服务器ip对应的域名, 如报错 ip.xip.io:Timeout，是因为没有解析成功, 换ip.nip.io或者其他能成功解析的域名
 dist=~/server/cert/$domain
 mkdir -p $dist
 
