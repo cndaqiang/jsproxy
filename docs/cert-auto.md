@@ -10,14 +10,26 @@ iptables -t nat -I PREROUTING 1 -p tcp --dport 80 -j REDIRECT --to-ports 8080
 
 2.安装 acme.sh（无需 root 权限，在 `jsproxy` 用户下安装）
 
+
 ```bash
 su - jsproxy
 curl https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh | INSTALLONLINE=1  sh
 ```
 
+CNQ: 这样
+```
+wget https://raw.githubusercontent.com/Neilpang/acme.sh/master/acme.sh
+./acme.sh --install
+```
+
 > 部分精简系统可能没有 `openssl` 导致运行失败，需提前安装依赖（例如 `yum install -y openssl`）
 
 3.申请证书
+
+CNQ: 要先注册账号
+```
+~/.acme.sh/acme.sh --register-account -m  email@gmail.com
+```
 
 ```bash
 # 服务器公网 IP
